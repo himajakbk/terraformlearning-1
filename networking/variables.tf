@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS Region"
   type        = string
-  #default     = "ap-south-1"
+  #default     = "us-east-1"
 }
 
 
@@ -22,7 +22,7 @@ variable "vpc_cidr_block" {
 variable "vpc_availability_zones" {
   description = "VPC Availability Zones"
   type        = list(string)
-  #default     = ["ap-south-1a", "ap-south-1b"]
+  #default     = ["us-east-1a", "us-east-1b"]
 }
 
 # VPC Public Subnets
