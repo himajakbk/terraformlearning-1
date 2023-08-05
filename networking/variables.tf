@@ -1,11 +1,11 @@
-variable "aws_region" {
+variable "us-east-1" {
   description = "AWS Region"
   type        = string
   #default     = "us-east-1"
 }
 
 
-variable "vpc_name" {
+variable "vpc-terraformcloud-demo" {
   description = "VPC Name"
   type        = string
   #default = "my-vpc"
