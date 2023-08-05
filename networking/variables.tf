@@ -1,9 +1,10 @@
-variable "us-east-1" {
-  description = "us-east-1"
+variable "aws_region" {
+  description = "The AWS region to deploy resources in."
   type        = string
-  default     = "172.31.0.0/16"
+  default     = "us-east-1"  # Set your preferred default region here
 }
 
+}
 
 variable "vpc-terraformcloud-demo" {
   description = "vpc-terraformcloud-demo"
