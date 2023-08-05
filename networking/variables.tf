@@ -1,4 +1,4 @@
-variable "aws_region" {
+variable "us-east-1" {
   description = "The AWS region to deploy resources in."
   type        = string
   default     = "us-east-1"  # Set your preferred default region here
