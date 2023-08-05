@@ -1,14 +1,14 @@
-variable "aws_region" {
-  description = "AWS Region"
+variable "us-east-1" {
+  description = "us-east-1"
   type        = string
-  #default     = "us-east-1"
+  default     = "172.31.0.0/16"
 }
 
 
-variable "vpc_name" {
-  description = "VPC Name"
+variable "vpc-terraformcloud-demo" {
+  description = "vpc-terraformcloud-demo"
   type        = string
-  #default = "my-vpc"
+  default = "172.31.0.0/16"
 }
 
 # VPC CIDR Block
