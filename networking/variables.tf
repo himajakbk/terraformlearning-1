@@ -4,7 +4,6 @@ variable "aws_region" {
   default     = "us-east-1"  # Set your preferred default region here
 }
 
-}
 
 variable "vpc-terraformcloud-demo" {
   description = "vpc-terraformcloud-demo"
