@@ -15,7 +15,7 @@ variable "vpc_name" {
 variable "vpc_cidr_block" {
   description = "VPC CIDR Block"
   type        = string
-  #default     = "10.0.0.0/16"
+  #default     = "172.31.0.0/16"
 }
 
 # VPC Availability Zones
