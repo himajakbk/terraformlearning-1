@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "s3module" {
+resource "aws_s3_bucket.aws_s3_bucket_terraform_cloud" {
   bucket = var.name_bucket
   acl    = "public-read"
   policy = <<EOF
