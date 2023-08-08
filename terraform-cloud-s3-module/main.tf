@@ -1,6 +1,6 @@
 resource "aws_s3_bucket.aws_s3_bucket_terraform_cloud" {
   bucket = var.name_bucket
-  acl    = "public-read"
+  acl    = "aws_s3_bucket.aws_s3_bucket_terraform_cloud"
   policy = <<EOF
 {
   "Version": "2012-10-17",
