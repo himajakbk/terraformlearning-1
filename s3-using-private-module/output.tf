@@ -17,8 +17,4 @@ output "bucket_domain" {
   description = "domain_of_bucket"
   value = module.bucket_s3_terraform_cloud.domain
 
-#Bucket URL
-output "Bucket_URL" {
-  description = "URL OF BUCKET"
-  value = module.bucket_s3_terraform_cloud.endpoint
 }
