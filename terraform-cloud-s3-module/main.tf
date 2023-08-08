@@ -1,33 +1,29 @@
-resource "bucket_s3_terraform_cloud" {
-  bucket = var.name_bucket  
-  policy = <<EOF
+resource "aws_s3_bucket" "aws_s3_bucket_terraform_cloud" {
+  bucket = "ar.name_bucket"
+}
 
- PublicAccessBlockConfiguration:
-          BlockPublicAcls:  "public-read" -> null
-        OwnershipControls:
-          Rules:
-            - ObjectOwnership: ObjectWriter
-{
-  "Version": "2012-10-17",
-  "Statement": [
-      {
-          "Sid": "PublicReadGetObject",
-          "Effect": "Allow",
-          "Principal": "*",
-          "Action": [
-              "s3:GetObject"
-          ],
-          "Resource": [
-              "arn:aws:s3:::${var.name_bucket}/*"
-          ]
-      }
-  ]
-}  
-EOF
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
+resource "aws_s3_bucket_ownership_controls" "aws_s3_bucket_terraform_cloud" {
+  bucket = aws_s3_bucket.aws_s3_bucket_terraform_cloud.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
   }
-  tags          = var.tags_bucket
-  force_destroy = true
+}
+
+resource "aws_s3_bucket_public_access_block" "aws_s3_bucket_terraform_cloud" {
+  bucket = aws_s3_bucket.aws_s3_bucket_terraform_cloud.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_acl" "aws_s3_bucket_terraform_cloud" {
+  depends_on = [
+    aws_s3_bucket_ownership_controls.aws_s3_bucket_terraform_cloud,
+    aws_s3_bucket_public_access_block.aws_s3_bucket_terraform_cloud,
+  ]
+
+  bucket = aws_s3_bucket.aws_s3_bucket_terraform_cloud.id
+  acl    = "public-read"
 }
