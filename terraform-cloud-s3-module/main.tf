@@ -1,8 +1,9 @@
 resource "bucket_s3_terraform_cloud" {
   bucket = var.name_bucket  
   policy = <<EOF
+
  PublicAccessBlockConfiguration:
-          BlockPublicAcls: false
+          BlockPublicAcls:  "public-read" -> null
         OwnershipControls:
           Rules:
             - ObjectOwnership: ObjectWriter
