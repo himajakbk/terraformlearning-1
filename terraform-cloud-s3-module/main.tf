@@ -1,5 +1,5 @@
-resource "aws_s3_bucket" "aws_s3_bucket_terraform_cloud" {
-  bucket = "ar.name_bucket"
+rresource "aws_s3_bucket" "aws_s3_bucket_terraform_cloud" {
+  bucket = "my-tf-aws_s3_bucket_terraform_cloud-bucket"
 }
 
 resource "aws_s3_bucket_ownership_controls" "aws_s3_bucket_terraform_cloud" {
@@ -9,21 +9,9 @@ resource "aws_s3_bucket_ownership_controls" "aws_s3_bucket_terraform_cloud" {
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "aws_s3_bucket_terraform_cloud" {
-  bucket = aws_s3_bucket.aws_s3_bucket_terraform_cloud.id
-
-  block_public_acls       = false
-  block_public_policy     = false
-  ignore_public_acls      = false
-  restrict_public_buckets = false
-}
-
 resource "aws_s3_bucket_acl" "aws_s3_bucket_terraform_cloud" {
-  depends_on = [
-    aws_s3_bucket_ownership_controls.aws_s3_bucket_terraform_cloud,
-    aws_s3_bucket_public_access_block.aws_s3_bucket_terraform_cloud,
-  ]
+  depends_on = [aws_s3_bucket_ownership_controls.aws_s3_bucket_terraform_cloud]
 
   bucket = aws_s3_bucket.aws_s3_bucket_terraform_cloud.id
-  acl    = "public-read"
+  acl    = "private"
 }
