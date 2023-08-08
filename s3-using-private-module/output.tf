@@ -15,8 +15,7 @@ output "bucket_name" {
 #Domain
 output "bucket_domain" {
   description = "domain_of_bucket"
-  value = module.aws_s3_bucket_terraform_cloud.domain
-}
+  value = module.bucket_s3_terraform_cloud.domain
 
 #Bucket URL
 output "Bucket_URL" {
