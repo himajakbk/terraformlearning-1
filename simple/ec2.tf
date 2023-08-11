@@ -6,6 +6,6 @@ resource "aws_instance" "terraform-cloud-vm" {
   user_data              = file("install.sh")
   vpc_security_group_ids = [aws_security_group.terraform-cloud-vm-sg.id,]
   tags = {
-    "Name" = "terraform-cloud-vm-${count.index}"
+    "Name" = "terraform-cloud-vm-$count.index"
   }
 }
