@@ -1,4 +1,4 @@
-resource "aws_instance" "terraform-cloud-vm" {
+resource "aws_instance" "himaja.pem" {
   ami                    = data.aws_ami.amzlinux.id
   instance_type          = var.instance_type
   count                  = 1
